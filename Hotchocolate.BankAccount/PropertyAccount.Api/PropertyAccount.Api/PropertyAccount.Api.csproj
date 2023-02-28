@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>a168a716-4551-4b78-a552-236723491768</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="7.0.0" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="HotChocolate.AspNetCore" Version="13.0.5" />
+    <PackageReference Include="HotChocolate.Data" Version="13.0.5" />
+    <PackageReference Include="MediatR" Version="12.0.1" />
+    <PackageReference Include="MediatR.Contracts" Version="2.0.1" />
+    <PackageReference Include="MediatR.Extensions.Autofac.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\BankAccount.Core\PropertyAccount.Domain.Model\PropertyAccount.Domain.Model\PropertyAccount.Domain.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DataLoaders\" />
+    <Folder Include="FieldResolvers\" />
+    <Folder Include="FieldMiddlewares\" />
+    <Folder Include="Interceptor\" />
+    <Folder Include="Schema\ObjectTypes\" />
+    <Folder Include="Schema\Nodes\" />
+    <Folder Include="ServiceCollectionExtension\" />
+  </ItemGroup>
+
+</Project>

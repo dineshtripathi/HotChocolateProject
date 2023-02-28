@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\BankAccount.Infrastructure\BankAccount.DatabaseEntity\BankAccount.DatabaseEntity.csproj" />
+    <ProjectReference Include="..\BankAccount.Domain.Model\BankAccount.Domain.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="CommandHandler\" />
+    <Folder Include="CommandRequest\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="7.0.0" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="MediatR" Version="12.0.1" />
+    <PackageReference Include="MediatR.Extensions.Autofac.DependencyInjection" Version="11.0.0" />
+  </ItemGroup>
+
+</Project>

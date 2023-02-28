@@ -348,3 +348,4 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/Hotchocolate.BankAccount/BankAccount.Api/Account.Api/appsettings.json
