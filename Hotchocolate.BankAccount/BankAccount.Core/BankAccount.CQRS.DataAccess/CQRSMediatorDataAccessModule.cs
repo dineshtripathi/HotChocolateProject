@@ -10,6 +10,7 @@ namespace BankAccount.CQRS.DataAccess;
 [DebuggerDisplay($"{{{nameof(GetDebuggerDisplay)}(),nq}}")]
 public class CQRSMediatorDataAccessModule : Autofac.Module
 {
+
     protected override void Load(ContainerBuilder containerBuilder)
     {
 
