@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Xml;
@@ -36,7 +37,16 @@ public class BaseRepositoryProvider<T> : IBaseRepositoryProvider<T> where T : cl
 
     public async Task<IQueryable<T>> FindAsync(Expression<Func<T, bool>> predicate)
     {
+        Stopwatch stopWatch = new Stopwatch();
+        stopWatch.Start();
         var result = (await GetAllWithInclude()).Where(predicate).AsQueryable();
+        stopWatch.Stop();
+        // Get the elapsed time as a TimeSpan value.
+        TimeSpan ts = stopWatch.Elapsed;
+
+        // Format and display the TimeSpan value.
+        string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",ts.Hours, ts.Minutes, ts.Seconds,ts.Milliseconds / 10);
+        Console.WriteLine("RunTime Find Async" + elapsedTime);
         return (await GetAllWithInclude()).Where(predicate).AsQueryable();
     }
 
@@ -105,7 +115,7 @@ public class BaseRepositoryProvider<T> : IBaseRepositoryProvider<T> where T : cl
 
             foreach (var navigation in navigations)
             {
-                query = query.Include(navigation.Name);
+                query = query.AsSplitQuery().Include(navigation.Name);
             }
 
             return await Task.FromResult(query);
