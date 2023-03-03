@@ -1,5 +1,6 @@
-﻿using Account.Api.DataLoaders.Batch;
+﻿using Account.Api.DataLoaders.Group;
 using Autofac.Core;
+using Azure;
 using BankAccount.Domain.Model.Entity;
 using MediatR;
 using System.Dynamic;
@@ -11,38 +12,27 @@ namespace Account.Api.Schema.Query;
 
 public class CustomersQuery
 {
-    //[UsePaging]
-    //public async Task<IQueryable<Customer>?> Customers([Service] IMediator queryAllBankAccount)
-    //{
-    //    return (await queryAllBankAccount.Send(new QueryRequest<Customer>() { })).Loads;
-    //}
-
     [UsePaging]
-    public async Task<IQueryable<Customer>?> Customers(string name, BankAccountApiBatchProvider<Customer> bankAccountApiBatch)
+  //  [UseProjection]
+    [HotChocolate.Data.UseFiltering]
+    [HotChocolate.Data.UseSorting]
+
+    public async Task<IQueryable<Customer>?> CustomerPagedAndFilter([Service] IMediator queryAllBankAccount,CancellationToken cancellationToken)
     {
-      //  Expression<Func<Customer, bool>>? FilterExpression = c => c.Name.Contains(name);
-
-        var k = name.Split(',').Select(k => k.Trim()).ToList().AsReadOnly();
-
-        Expression<Func<Customer, bool>> FilterExpression = p => k.Contains(p.Name);
-        var cust = (await bankAccountApiBatch.LoadAsync(k, FilterExpression,CancellationToken.None));
-        cust = (await bankAccountApiBatch.LoadAsync(k, FilterExpression, CancellationToken.None));
-        return cust.SelectMany(x=>x).AsQueryable();
+        var loads = queryAllBankAccount.Send(new QueryRequest<Customer>() { }).Result.Loads;
+        loads = queryAllBankAccount.Send(new QueryRequest<Customer>() { }).Result.Loads;
+        return loads;
     }
 
     //[UsePaging]
-    //[UseProjection]
-    //[UseFiltering]
-    //[UseSorting]
     //public async Task<IQueryable<Customer>?> Customers(string name, BankAccountApiBatchProvider<Customer> bankAccountApiBatch)
     //{
+    //    var k = name.Split(',').Select(k => k.Trim()).ToList().AsReadOnly();
 
-    //    string[] nameList = name.Split(',');
-    //    var keys = name.Split(',').Select(k => k.Trim()).ToList().AsReadOnly();
-    //    Expression<Func<Customer, bool>> FilterExpression = p => keys.Contains(p.Name);
-
-    //    var customers = await bankAccountApiBatch.LoadAsync(keys, FilterExpression, CancellationToken.None);
-    //    var v= customers.SelectMany(group => group).AsQueryable();
-    //    return v;
+    //    Expression<Func<Customer, bool>> FilterExpression = p => k.Contains(p.Name);
+    //    var cust = (await bankAccountApiBatch.LoadAsync(k, FilterExpression,CancellationToken.None));
+    //    return cust.SelectMany(x=>x).AsQueryable();
     //}
+
+  
 }

@@ -1,15 +1,20 @@
 ﻿using BankAccount.Domain.Model.Entity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 
 namespace BankAccount.DatabaseEntity.DBContext;
-public class BankAccountDBContext : DbContext
+public partial class BankAccountDBContext : DbContext
 {
 
-    public DbSet<Customer> Customers => Set<Customer>();
-    public DbSet<Address> Addresses => Set<Address>();
-    public DbSet<CustomerBankAccount> CustomerBankAccounts => Set<CustomerBankAccount>();
-    public DbSet<Mortgage> Mortgages => Set<Mortgage>();
-    public DbSet<LoanRelationship> LoanRelationships => Set<LoanRelationship>();
+    public virtual DbSet<Customer> Customers {get;set;}
+    public virtual DbSet<Address> Addresses { get; set; }
+    public virtual DbSet<CustomerBankAccount> CustomerBankAccounts { get; set; }
+    public virtual DbSet<Mortgage> Mortgages { get; set; }
+    public virtual DbSet<LoanRelationship> LoanRelationships { get; set; }
+    //public BankAccountDBContext()
+    //{
+
+    //}
     public BankAccountDBContext(DbContextOptions<BankAccountDBContext> options) : base(options)
     {
 
@@ -49,14 +54,10 @@ public class BankAccountDBContext : DbContext
 
             entity.HasOne(d => d.Customer).WithMany(p => p.Mortgages).HasForeignKey(d => d.CustomerId);
         });
-
+        OnModelCreatingPartial(modelBuilder);
     }
-
-    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    //{
-
-    //   optionsBuilder.UseSqlServer("Server=AADITRIAARSHABH;Database=BankAccountProject;TrustServerCertificate=True;Integrated Security=SSPI;");
-    //}
-
-
+    partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+   
+    
 }
+

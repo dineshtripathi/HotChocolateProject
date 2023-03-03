@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace BankAccount.DatabaseEntity.migrationscripts
+namespace BankAccount.DatabaseEntity.Migrations
 {
     [DbContext(typeof(BankAccountDBContext))]
     partial class BankAccountDBContextModelSnapshot : ModelSnapshot
@@ -36,6 +36,12 @@ namespace BankAccount.DatabaseEntity.migrationscripts
                     b.Property<int?>("CustomerId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime?>("DateMovedIn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateMovedOut")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("State")
                         .HasColumnType("nvarchar(max)");
 
@@ -60,8 +66,14 @@ namespace BankAccount.DatabaseEntity.migrationscripts
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime>("ApprovedDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("EnrollmentDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -85,6 +97,9 @@ namespace BankAccount.DatabaseEntity.migrationscripts
                     b.Property<string>("BankName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<int?>("CustomerId")
                         .HasColumnType("int");
 
@@ -106,11 +121,36 @@ namespace BankAccount.DatabaseEntity.migrationscripts
                     b.Property<decimal>("Amount")
                         .HasColumnType("decimal(18, 2)");
 
+                    b.Property<decimal>("Balance")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Currency")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("InterestRate")
                         .HasColumnType("decimal(18, 2)");
+
+                    b.Property<bool>("IsLoan")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LoanApprovedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("LoanEndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("LoanStartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("TotalAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TotalFee")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
@@ -130,11 +170,27 @@ namespace BankAccount.DatabaseEntity.migrationscripts
                     b.Property<decimal>("Amount")
                         .HasColumnType("decimal(18, 2)");
 
+                    b.Property<decimal>("CommissionCharge")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("CurrencyCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("InterestRate")
                         .HasColumnType("decimal(18, 2)");
+
+                    b.Property<DateTime>("MortageEndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("MortageMonthlyDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("MortageStartDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("Term")
                         .HasColumnType("int");

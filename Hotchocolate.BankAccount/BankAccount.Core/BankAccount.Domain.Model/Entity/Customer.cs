@@ -8,6 +8,8 @@ public class Customer
     public string? Name { get; set; }
 
     public string? Email { get; set; }
+    public DateTime EnrollmentDate { get; set; }
+    public DateTime ApprovedDate { get; set; }
 
     public virtual ICollection<Address> Addresses { get; } = new List<Address>();
 

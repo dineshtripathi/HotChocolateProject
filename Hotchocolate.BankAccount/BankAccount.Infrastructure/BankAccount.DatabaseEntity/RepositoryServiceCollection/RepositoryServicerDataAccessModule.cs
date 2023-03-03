@@ -8,6 +8,6 @@ public class RepositoryServicerDataAccessModule : Module
 {
     protected override void Load(ContainerBuilder containerBuilder)
     {
-        containerBuilder.RegisterGeneric(typeof(BaseRepositoryProvider<>)).As(typeof(IBaseRepositoryProvider<>)).InstancePerLifetimeScope();
+       containerBuilder.RegisterGeneric(typeof(BaseRepositoryProvider<>)).As(typeof(IBaseRepositoryProvider<>)).InstancePerDependency();
     }
 }

@@ -14,6 +14,8 @@ public class Address
     public string? ZipCode { get; set; }
 
     public int? CustomerId { get; set; }
+    public DateTime? DateMovedIn { get; set; } = default(DateTime?);
+    public DateTime? DateMovedOut { get; set; } = default(DateTime?);
 
     public virtual Customer? Customer { get; set; }
 }

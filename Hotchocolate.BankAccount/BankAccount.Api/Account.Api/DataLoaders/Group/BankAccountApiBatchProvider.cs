@@ -6,7 +6,7 @@ using System;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace Account.Api.DataLoaders.Batch
+namespace Account.Api.DataLoaders.Group
 {
 
 
@@ -67,8 +67,8 @@ namespace Account.Api.DataLoaders.Batch
         protected override async Task<ILookup<string, Customer>> LoadGroupedBatchAsync(IReadOnlyList<string> names, CancellationToken cancellationToken)
         {
             ILookup<string, Customer>? customerLookup = null;
-           // var c = (await _mediator.Send(new QueryRequest<Customer>() { }, cancellationToken)).Loads;
-           var customers = (await _mediator.Send(new QueryRequest<Customer>() { FilterExpression = _predicate }, cancellationToken)).Loads;
+            // var c = (await _mediator.Send(new QueryRequest<Customer>() { }, cancellationToken)).Loads;
+            var customers = (await _mediator.Send(new QueryRequest<Customer>() { FilterExpression = _predicate }, cancellationToken)).Loads;
             Func<Customer, string> keySelector = c => (string)typeof(Customer).GetProperty("Name").GetValue(c); ;
             return customers.ToLookup(keySelector);
         }
@@ -84,4 +84,5 @@ namespace Account.Api.DataLoaders.Batch
         }
 
     }
+
 }

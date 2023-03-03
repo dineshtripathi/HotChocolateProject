@@ -11,13 +11,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BankAccount.Application", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BankAccount.Api", "BankAccount.Api", "{CE867E3D-1A14-4680-BFC8-3DFD7FAAF436}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Account.Api", "BankAccount.Api\Account.Api\Account.Api.csproj", "{DBABAAD5-65E8-4E1A-A0B9-7B6BBCBB288F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Account.Api", "BankAccount.Api\Account.Api\Account.Api.csproj", "{DBABAAD5-65E8-4E1A-A0B9-7B6BBCBB288F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccount.DatabaseEntity", "BankAccount.Infrastructure\BankAccount.DatabaseEntity\BankAccount.DatabaseEntity.csproj", "{A78DFFB6-6577-4703-9799-253CFD07667E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankAccount.DatabaseEntity", "BankAccount.Infrastructure\BankAccount.DatabaseEntity\BankAccount.DatabaseEntity.csproj", "{A78DFFB6-6577-4703-9799-253CFD07667E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccount.Domain.Model", "BankAccount.Core\BankAccount.Domain.Model\BankAccount.Domain.Model.csproj", "{DDD279F4-AAA9-4BB8-9E49-A08C5B911D39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankAccount.Domain.Model", "BankAccount.Core\BankAccount.Domain.Model\BankAccount.Domain.Model.csproj", "{DDD279F4-AAA9-4BB8-9E49-A08C5B911D39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccount.CQRS.DataAccess", "BankAccount.Core\BankAccount.CQRS.DataAccess\BankAccount.CQRS.DataAccess.csproj", "{EC781BFE-EAC1-4925-B259-33FF03CC8F04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankAccount.CQRS.DataAccess", "BankAccount.Core\BankAccount.CQRS.DataAccess\BankAccount.CQRS.DataAccess.csproj", "{EC781BFE-EAC1-4925-B259-33FF03CC8F04}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F331AEE8-45A3-4E87-B107-B3465DCB6BD6}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.md = Readme.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

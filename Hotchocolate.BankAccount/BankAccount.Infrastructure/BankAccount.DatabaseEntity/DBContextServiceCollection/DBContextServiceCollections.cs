@@ -11,6 +11,8 @@ public static class HotChocolateServiceExtension
     public static IServiceCollection AddSQLConnectionServices(this IServiceCollection services, IConfiguration Configuration)
     {
 
+
+
         services.AddPooledDbContextFactory<BankAccountDBContext>(options =>
         {
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));

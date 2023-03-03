@@ -9,6 +9,9 @@ public class CustomerBankAccount
 
     public int? CustomerId { get; set; }
 
+    public DateTime? CreatedDate { get; set; } = default(DateTime?);
+
+
     public virtual Customer? Customer { get; set; }
 }
 

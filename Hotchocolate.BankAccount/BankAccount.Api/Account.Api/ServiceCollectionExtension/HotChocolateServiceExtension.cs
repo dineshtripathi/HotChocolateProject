@@ -1,4 +1,6 @@
-﻿using Account.Api.Schema.Query;
+﻿using Account.Api.DataLoaders.Group;
+using Account.Api.Schema.ObjectTypesNodes;
+using Account.Api.Schema.Query;
 using Account.Api.Schema.Query.Extensions;
 using HotChocolate.AspNetCore.Serialization;
 using HotChocolate.Execution;
@@ -14,21 +16,27 @@ public static class HotChocolateServices
 
         //UseDbContext -> UsePaging -> UseProjection -> UseFiltering -> UseSorting
         services.AddGraphQLServer()
+
                 .AddQueryType(q => q.Name("Query"))
                  .SetPagingOptions(new PagingOptions
                  {
                      IncludeTotalCount = true,
                      LegacySupport = true,
                      DefaultPageSize = 10,
-                     MaxPageSize = 100
+                     MaxPageSize = 10
 
                  })
                  .AddProjections()
                  .AddFiltering()
                  .AddSorting()
+                 
                 .AddType<CustomersQuery>()
+                .AddType<CustomerType>()
+                .AddType<SearchMortageObjectType>()
                 .AddType<CustomerBankAccountQuery>()
+                .AddType<MortgageType>()
                 .AddTypeExtension<CustomersQueryExtension>()
+                .AddDataLoader<MortageDataLoader>()
                 .AddMaxExecutionDepthRule(100, true, true);
 
 

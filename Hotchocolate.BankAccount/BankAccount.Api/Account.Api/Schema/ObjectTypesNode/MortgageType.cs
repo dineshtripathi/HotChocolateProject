@@ -12,5 +12,12 @@ public class MortgageType : ObjectType<Mortgage>
         descriptor.Field(m => m.Term).Type<NonNullType<IntType>>();
         descriptor.Field(m => m.InterestRate).Type<NonNullType<DecimalType>>();
         descriptor.Field(m => m.CustomerId).Type<NonNullType<IdType>>();
+        descriptor.Field(m => m.MortageEndDate).Type<NonNullType<DateTimeType>>();
+        descriptor.Field(m => m.MortageMonthlyDate).Type<NonNullType<DateTimeType>>();
+        descriptor.Field(m => m.MortageStartDate).Type<NonNullType<DateTimeType>>();
+        descriptor.Field(m => m.CurrencyCode).Type<NonNullType<StringType>>();
+        descriptor.Field(m => m.CommissionCharge).Type<NonNullType<DecimalType>>();
+        
+
     }
 }
