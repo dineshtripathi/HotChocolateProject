@@ -14,7 +14,7 @@ public class LoanRelationship
     public decimal Balance { get; set; } = 0;
     public decimal TotalAmount { get; set; }
     public decimal TotalFee { get; set; }
-    public string Currency { get; set; }
+    public string? Currency { get; set; }
     public DateTime LoanStartDate { get; set; }
     public int IsLoan { get; set; }
     public DateTime LoanEndDate { get;set; }

@@ -1,7 +1,5 @@
 ﻿using BankAccount.DatabaseEntity.DBContext.BaseRepositoryProvider;
 using BankAccount.Domain.Model.Entity;
-using MediatR;
-using System.Linq.Expressions;
 
 namespace Account.Api.DataLoaders.Group
 {

@@ -1,23 +1,17 @@
-﻿using Autofac;
-using BankAccount.DatabaseEntity.ContextProvider;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Internal;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using System.Linq.Expressions;
-using System.Reflection;
-using System.Xml;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace BankAccount.DatabaseEntity.DBContext.BaseRepositoryProvider;
 
 public class BaseRepositoryProvider<T> : IBaseRepositoryProvider<T> where T : class
 {
-    private BankAccountDBContext _bankAccountContext;
+    private readonly BankAccountDbContext _bankAccountContext;
 
-    public IDbContextFactory<BankAccountDBContext> ContextFactory { get; }
+    public IDbContextFactory<BankAccountDbContext> ContextFactory { get; }
 
-    public BaseRepositoryProvider(IDbContextFactory<BankAccountDBContext> contextFactory)
+    public BaseRepositoryProvider(IDbContextFactory<BankAccountDbContext> contextFactory)
 
     {
         _bankAccountContext = contextFactory.CreateDbContext() ?? throw new ArgumentNullException(nameof(contextFactory), "SQL DB context is null , check configuration in appSettings and ServiceCollection");
@@ -37,15 +31,15 @@ public class BaseRepositoryProvider<T> : IBaseRepositoryProvider<T> where T : cl
 
     public async Task<IQueryable<T>> FindAsync(Expression<Func<T, bool>> predicate)
     {
-        Stopwatch stopWatch = new Stopwatch();
+        var stopWatch = new Stopwatch();
         stopWatch.Start();
         var result = (await GetAllWithInclude()).Where(predicate).AsQueryable();
         stopWatch.Stop();
         // Get the elapsed time as a TimeSpan value.
-        TimeSpan ts = stopWatch.Elapsed;
+        var ts = stopWatch.Elapsed;
 
         // Format and display the TimeSpan value.
-        string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",ts.Hours, ts.Minutes, ts.Seconds,ts.Milliseconds / 10);
+        var elapsedTime = $"{ts.Hours:00}:{ts.Minutes:00}:{ts.Seconds:00}.{ts.Milliseconds / 10:00}";
         Console.WriteLine("RunTime Find Async" + elapsedTime);
         return (await GetAllWithInclude()).Where(predicate).AsQueryable();
     }
@@ -54,7 +48,7 @@ public class BaseRepositoryProvider<T> : IBaseRepositoryProvider<T> where T : cl
     public IQueryable<T> GetAllItemByList(IReadOnlyList<string> nameList)
     {
 
-        IQueryable<T> query = GetAllWithInclude().Result.AsNoTracking();
+        var query = GetAllWithInclude().Result.AsNoTracking();
 
         var parameter = Expression.Parameter(typeof(T), "x");
         var nameProperty = Expression.Property(parameter, typeof(T).GetProperty("Name"));
@@ -107,20 +101,14 @@ public class BaseRepositoryProvider<T> : IBaseRepositoryProvider<T> where T : cl
     private async Task<IQueryable<T>> IncludeRelatedEntities(DbSet<T> set, DbContext context)
     {
         var entityType = context.Model.FindEntityType(typeof(T));
-        var navigations = entityType.GetNavigations();
+        var navigations = entityType?.GetNavigations();
 
-        if (navigations.Any())
+        if (navigations != null && !navigations.Any()) return set;
         {
-            IQueryable<T> query = set;
-
-            foreach (var navigation in navigations)
-            {
-                query = query.AsSplitQuery().Include(navigation.Name);
-            }
+            IQueryable<T> query = navigations.Aggregate<INavigation?, IQueryable<T>>(set, (current, navigation) => current.AsSplitQuery().Include(navigation?.Name ?? string.Empty));
 
             return await Task.FromResult(query);
         }
 
-        return set;
     }
 }

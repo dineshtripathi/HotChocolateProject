@@ -1,5 +1,7 @@
 ﻿
 
+namespace PropertyAccount.Domain.Model;
+
 public class Property
 {
     public int Id { get; set; }

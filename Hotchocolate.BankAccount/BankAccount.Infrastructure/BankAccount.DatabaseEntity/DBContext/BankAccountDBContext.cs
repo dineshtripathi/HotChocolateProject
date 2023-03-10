@@ -1,21 +1,17 @@
 ﻿using BankAccount.Domain.Model.Entity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
 
 namespace BankAccount.DatabaseEntity.DBContext;
-public partial class BankAccountDBContext : DbContext
+public partial class BankAccountDbContext : DbContext
 {
 
-    public virtual DbSet<Customer> Customers {get;set;}
-    public virtual DbSet<Address> Addresses { get; set; }
-    public virtual DbSet<CustomerBankAccount> CustomerBankAccounts { get; set; }
-    public virtual DbSet<Mortgage> Mortgages { get; set; }
-    public virtual DbSet<LoanRelationship> LoanRelationships { get; set; }
-    //public BankAccountDBContext()
-    //{
-
-    //}
-    public BankAccountDBContext(DbContextOptions<BankAccountDBContext> options) : base(options)
+    public virtual DbSet<Customer>? Customers {get;set;}
+    public virtual DbSet<Address>? Addresses { get; set; }
+    public virtual DbSet<CustomerBankAccount>? CustomerBankAccounts { get; set; }
+    public virtual DbSet<Mortgage>? Mortgages { get; set; }
+    public virtual DbSet<LoanRelationship>? LoanRelationships { get; set; }
+   
+    public BankAccountDbContext(DbContextOptions<BankAccountDbContext> options) : base(options)
     {
         
     }

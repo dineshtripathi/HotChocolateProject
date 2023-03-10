@@ -18,9 +18,9 @@ namespace Account.Api.Schema.Query.Extensions
 
             descriptor.Field("PropertySold").Type<StringType>().IsProjected().Type<StringType>().Resolve(context =>
             {
-                var FruitName = "";
+                var fruitName = "";
 
-                return FruitName;
+                return fruitName;
 
             }).IsProjected();
 

@@ -1,5 +1,4 @@
 ﻿using BankAccount.Domain.Model.Entity;
-using System;
 
 namespace Account.Api.Resolvers
 {

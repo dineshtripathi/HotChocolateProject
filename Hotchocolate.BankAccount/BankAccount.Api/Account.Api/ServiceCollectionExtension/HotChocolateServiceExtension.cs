@@ -3,7 +3,6 @@ using Account.Api.Schema.Query;
 using Account.Api.Schema.Query.Extensions;
 using HotChocolate.AspNetCore.Serialization;
 using HotChocolate.Execution;
-using HotChocolate.Types.Descriptors;
 using HotChocolate.Types.Pagination;
 using System.Net;
 using Account.Api.Schema.ObjectTypesNode;

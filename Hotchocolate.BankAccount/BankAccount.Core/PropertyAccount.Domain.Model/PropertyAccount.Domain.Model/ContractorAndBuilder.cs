@@ -1,4 +1,6 @@
-﻿public class ContractorAndBuilder
+﻿namespace PropertyAccount.Domain.Model;
+
+public class ContractorAndBuilder
 {
     public int Id { get; set; }
     public string ContractorBuilderName { get; set; }

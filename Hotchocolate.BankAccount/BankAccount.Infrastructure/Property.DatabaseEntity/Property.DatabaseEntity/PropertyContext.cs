@@ -1,61 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Linq.Expressions;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using PropertyAccount.Domain.Model;
 
-namespace PropertyAccountSQLDB;
+namespace Property.DatabaseEntity;
 
-public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity : class
-{
-    protected readonly DbContext _context;
-
-    public Repository(DbContext context)
-    {
-        _context = context;
-    }
-
-    public async Task<TEntity> GetByIdAsync(int id)
-    {
-        return await _context.Set<TEntity>().FindAsync(id);
-    }
-
-    public async Task<IEnumerable<TEntity>> GetAllAsync()
-    {
-        return await _context.Set<TEntity>().ToListAsync();
-    }
-
-    public async Task<IEnumerable<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate)
-    {
-        return await _context.Set<TEntity>().Where(predicate).ToListAsync();
-    }
-
-    public async Task AddAsync(TEntity entity)
-    {
-        await _context.Set<TEntity>().AddAsync(entity);
-    }
-
-    public async Task AddRangeAsync(IEnumerable<TEntity> entities)
-    {
-        await _context.Set<TEntity>().AddRangeAsync(entities);
-    }
-
-    public void Remove(TEntity entity)
-    {
-        _context.Set<TEntity>().Remove(entity);
-    }
-
-    public void RemoveRange(IEnumerable<TEntity> entities)
-    {
-        _context.Set<TEntity>().RemoveRange(entities);
-    }
-
-    public void Update(TEntity entity)
-    {
-        _context.Set<TEntity>().Update(entity);
-    }
-}
 public class PropertyContext : DbContext
 {
-    public DbSet<Property> Properties { get; set; }
+    public DbSet<PropertyAccount.Domain.Model.Property> Properties { get; set; }
     public DbSet<Address> Addresses { get; set; }
     public DbSet<ContractorAndBuilder> ContractorAndBuilders { get; set; }
     public DbSet<Registration> Registrations { get; set; }
@@ -67,7 +17,7 @@ public class PropertyContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         // Configure Entity1
-        modelBuilder.Entity<Property>(entity =>
+        modelBuilder.Entity<PropertyAccount.Domain.Model.Property>(entity =>
         {
             // Configure the primary key
             entity.HasKey(e => e.Id);

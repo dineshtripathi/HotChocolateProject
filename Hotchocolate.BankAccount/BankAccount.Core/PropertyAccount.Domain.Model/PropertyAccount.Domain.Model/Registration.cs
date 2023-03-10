@@ -1,4 +1,6 @@
-﻿public class Registration
+﻿namespace PropertyAccount.Domain.Model;
+
+public class Registration
 {
     public int Id { get; set; }
     public string RegistterdName { get; set; }

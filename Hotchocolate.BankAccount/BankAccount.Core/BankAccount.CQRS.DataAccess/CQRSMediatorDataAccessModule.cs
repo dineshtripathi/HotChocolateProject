@@ -9,7 +9,7 @@ using BankAccount.CQRS.DataAccess.CQRSQuery.Handler;
 namespace BankAccount.CQRS.DataAccess;
 
 [DebuggerDisplay($"{{{nameof(GetDebuggerDisplay)}(),nq}}")]
-public class CQRSMediatorDataAccessModule : Autofac.Module
+public class CqrsMediatorDataAccessModule : Autofac.Module
 {
 
     protected override void Load(ContainerBuilder containerBuilder)

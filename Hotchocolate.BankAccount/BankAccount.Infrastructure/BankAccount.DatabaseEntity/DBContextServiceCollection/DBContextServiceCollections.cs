@@ -8,14 +8,14 @@ namespace BankAccount.DatabaseEntity.DBContextServiceCollection;
 public static class HotChocolateServiceExtension
 {
 
-    public static IServiceCollection AddSQLConnectionServices(this IServiceCollection services, IConfiguration Configuration)
+    public static IServiceCollection AddSqlConnectionServices(this IServiceCollection services, IConfiguration configuration)
     {
 
 
 
-        services.AddPooledDbContextFactory<BankAccountDBContext>(options =>
+        services.AddPooledDbContextFactory<BankAccountDbContext>(options =>
         {
-            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+            options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
         });
         return services;
     }
