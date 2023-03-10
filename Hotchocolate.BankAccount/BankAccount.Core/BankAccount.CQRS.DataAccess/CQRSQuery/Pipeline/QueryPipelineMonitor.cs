@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using BankAccount.CQRS.DataAccess.CQRSQuery.Request;
+using BankAccount.CQRS.DataAccess.CQRSQuery.Response;
+using MediatR;
 
 namespace BankAccount.CQRS.DataAccess.CQRSQuery.Pipeline;
 

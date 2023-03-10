@@ -1,7 +1,6 @@
-﻿
-using BankAccount.Domain.Model.Entity;
+﻿using BankAccount.Domain.Model.Entity;
 
-namespace Account.Api.Schema.ObjectTypesNodes;
+namespace Account.Api.Schema.ObjectTypesNode;
 
 public class MortgageType : ObjectType<Mortgage>
 {
@@ -17,7 +16,6 @@ public class MortgageType : ObjectType<Mortgage>
         descriptor.Field(m => m.MortageStartDate).Type<NonNullType<DateTimeType>>();
         descriptor.Field(m => m.CurrencyCode).Type<NonNullType<StringType>>();
         descriptor.Field(m => m.CommissionCharge).Type<NonNullType<DecimalType>>();
-        
 
-    }
+}
 }

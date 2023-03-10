@@ -1,6 +1,6 @@
 ﻿using BankAccount.Domain.Model.Entity;
 
-namespace Account.Api.Schema.ObjectTypesNodes;
+namespace Account.Api.Schema.ObjectTypesNode;
 
 public class BankAccountType : ObjectType<CustomerBankAccount>
 {

@@ -1,11 +1,12 @@
 ﻿using Account.Api.DataLoaders.Group;
-using Account.Api.Schema.ObjectTypesNodes;
 using Account.Api.Schema.Query;
 using Account.Api.Schema.Query.Extensions;
 using HotChocolate.AspNetCore.Serialization;
 using HotChocolate.Execution;
+using HotChocolate.Types.Descriptors;
 using HotChocolate.Types.Pagination;
 using System.Net;
+using Account.Api.Schema.ObjectTypesNode;
 
 namespace Account.Api.ServiceCollectionExtension;
 
@@ -22,15 +23,17 @@ public static class HotChocolateServices
                  {
                      IncludeTotalCount = true,
                      LegacySupport = true,
-                     DefaultPageSize = 10,
-                     MaxPageSize = 10
+                     DefaultPageSize = 100,
+                     MaxPageSize = 100,
+                     AllowBackwardPagination = true,
+                     InferConnectionNameFromField = true,
+                     InferCollectionSegmentNameFromField = true,
 
                  })
                  .AddProjections()
                  .AddFiltering()
                  .AddSorting()
-                 
-                .AddType<CustomersQuery>()
+                .AddType<CustomersQuery>().AddProjections()
                 .AddType<CustomerType>()
                 .AddType<SearchMortageObjectType>()
                 .AddType<CustomerBankAccountQuery>()
@@ -39,10 +42,12 @@ public static class HotChocolateServices
                 .AddDataLoader<MortageDataLoader>()
                 .AddMaxExecutionDepthRule(100, true, true);
 
-
+       
+       // services.AddAttributeMiddleware();
         return services;
     }
 }
+
 public class CustomHttpResponseFormatter : DefaultHttpResponseFormatter
 {
     protected override HttpStatusCode OnDetermineStatusCode(
@@ -58,3 +63,5 @@ public class CustomHttpResponseFormatter : DefaultHttpResponseFormatter
         return base.OnDetermineStatusCode(result, format, proposedStatusCode);
     }
 }
+
+

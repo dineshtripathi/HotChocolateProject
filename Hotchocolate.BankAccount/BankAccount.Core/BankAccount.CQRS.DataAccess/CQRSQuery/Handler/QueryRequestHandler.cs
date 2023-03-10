@@ -1,5 +1,9 @@
-﻿using BankAccount.DatabaseEntity.DBContext.BaseRepositoryProvider;
+﻿using BankAccount.CQRS.DataAccess.CQRSQuery.Request;
+using BankAccount.CQRS.DataAccess.CQRSQuery.Response;
+using BankAccount.DatabaseEntity.DBContext.BaseRepositoryProvider;
 using MediatR;
+
+namespace BankAccount.CQRS.DataAccess.CQRSQuery.Handler;
 
 public class QueryRequestHandler<T> : IRequestHandler<QueryRequest<T>, QueryResponse<T>>
 {

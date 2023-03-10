@@ -1,4 +1,6 @@
-﻿public class QueryResponse<T>
+﻿namespace BankAccount.CQRS.DataAccess.CQRSQuery.Response;
+
+public class QueryResponse<T>
 {
 
     public IQueryable<T>? Loads { get; set; }

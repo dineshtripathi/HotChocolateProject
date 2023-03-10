@@ -4,6 +4,7 @@ using MediatR.Extensions.Autofac.DependencyInjection;
 using MediatR.Extensions.Autofac.DependencyInjection.Builder;
 using System.Diagnostics;
 using System.Reflection;
+using BankAccount.CQRS.DataAccess.CQRSQuery.Handler;
 
 namespace BankAccount.CQRS.DataAccess;
 

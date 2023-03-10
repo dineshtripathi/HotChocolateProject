@@ -11,13 +11,13 @@ public class Customer
     public DateTime EnrollmentDate { get; set; }
     public DateTime ApprovedDate { get; set; }
 
-    public virtual ICollection<Address> Addresses { get; } = new List<Address>();
+    public virtual ICollection<Address> Addresses { get; set; } = new List<Address>();
 
-    public virtual ICollection<CustomerBankAccount> CustomerBankAccounts { get; } = new List<CustomerBankAccount>();
+    public virtual ICollection<CustomerBankAccount> CustomerBankAccounts { get; set; } = new List<CustomerBankAccount>();
 
-    public virtual ICollection<LoanRelationship> LoanRelationships { get; } = new List<LoanRelationship>();
+    public virtual ICollection<LoanRelationship> LoanRelationships { get; set; } = new List<LoanRelationship>();
 
-    public virtual ICollection<Mortgage> Mortgages { get; } = new List<Mortgage>();
+    public virtual ICollection<Mortgage> Mortgages { get; set; } = new List<Mortgage>();
 }
 
 /*

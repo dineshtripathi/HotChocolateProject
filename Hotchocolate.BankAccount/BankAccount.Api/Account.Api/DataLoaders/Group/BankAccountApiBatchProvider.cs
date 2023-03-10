@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Linq.Expressions;
+using BankAccount.CQRS.DataAccess.CQRSQuery.Request;
 
 namespace Account.Api.DataLoaders.Group
 {

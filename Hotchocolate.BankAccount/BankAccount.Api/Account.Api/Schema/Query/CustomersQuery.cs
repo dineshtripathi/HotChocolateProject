@@ -1,10 +1,7 @@
-﻿using Account.Api.DataLoaders.Group;
-using Autofac.Core;
-using Azure;
+﻿using Autofac.Core;
+using BankAccount.CQRS.DataAccess.CQRSQuery.Request;
 using BankAccount.Domain.Model.Entity;
 using MediatR;
-using System.Dynamic;
-using System.Linq.Expressions;
 
 namespace Account.Api.Schema.Query;
 
@@ -13,9 +10,9 @@ namespace Account.Api.Schema.Query;
 public class CustomersQuery
 {
     [UsePaging]
-  //  [UseProjection]
-    [HotChocolate.Data.UseFiltering]
-    [HotChocolate.Data.UseSorting]
+   [UseProjection]
+    [UseFiltering]
+    [UseSorting]
 
     public async Task<IQueryable<Customer>?> CustomerPagedAndFilter([Service] IMediator queryAllBankAccount,CancellationToken cancellationToken)
     {

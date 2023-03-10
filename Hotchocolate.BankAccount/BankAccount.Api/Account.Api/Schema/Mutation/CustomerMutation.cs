@@ -1,4 +1,4 @@
-﻿namespace Account.Api.Schema.Mutations;
+﻿namespace Account.Api.Schema.Mutation;
 
 [ExtendObjectType(OperationTypeNames.Mutation)]
 public class CustomerMutation

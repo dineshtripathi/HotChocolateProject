@@ -1,4 +1,5 @@
 ﻿using Autofac.Core;
+using BankAccount.CQRS.DataAccess.CQRSQuery.Request;
 using BankAccount.Domain.Model.Entity;
 using MediatR;
 

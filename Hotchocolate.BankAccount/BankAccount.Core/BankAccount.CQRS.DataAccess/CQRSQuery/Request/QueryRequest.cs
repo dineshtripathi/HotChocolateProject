@@ -1,6 +1,8 @@
-﻿using BankAccount.Domain.Model.Entity;
+﻿using System.Linq.Expressions;
+using BankAccount.CQRS.DataAccess.CQRSQuery.Response;
 using MediatR;
-using System.Linq.Expressions;
+
+namespace BankAccount.CQRS.DataAccess.CQRSQuery.Request;
 
 public class QueryRequest<T> : IRequest<QueryResponse<T>>
 {

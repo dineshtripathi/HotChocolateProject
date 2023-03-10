@@ -21,6 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankAccount.CQRS.DataAccess
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F331AEE8-45A3-4E87-B107-B3465DCB6BD6}"
 	ProjectSection(SolutionItems) = preProject
+		..\Hotchocolate.PropertyAccount\Hotchocolate.PropertyAccount\Hotchocolate.PropertyAccount.sln = ..\Hotchocolate.PropertyAccount\Hotchocolate.PropertyAccount\Hotchocolate.PropertyAccount.sln
 		Readme.md = Readme.md
 	EndProjectSection
 EndProject

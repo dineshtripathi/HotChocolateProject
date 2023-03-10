@@ -23,5 +23,5 @@ builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
 });
 
 var app = builder.Build();
-app.MapGraphQL();
+app.MapGraphQL("");
 app.Run();

@@ -16,16 +16,15 @@ namespace Account.Api.Schema.Query.Extensions
 
             }).IsProjected();
 
+            descriptor.Field("PropertySold").Type<StringType>().IsProjected().Type<StringType>().Resolve(context =>
+            {
+                var FruitName = "";
 
-            //descriptor.Field(x => x.Mortgages.Select(x => x.InterestRate)).IsProjected().Type<DecimalType>().Resolve(context =>
-            //{
-            //   var interestRate= context.Parent<Mortgage>();
+                return FruitName;
 
-            //    return (interestRate.InterestRate*10);
+            }).IsProjected();
 
-            //});
         }
     }
-
 
 }
