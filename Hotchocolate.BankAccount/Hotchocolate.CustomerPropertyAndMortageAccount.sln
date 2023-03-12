@@ -36,7 +36,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PropertyAccount.Api", "Prop
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PropertyAccount.Api", "PropertyAccount.Api\PropertyAccount.Api\PropertyAccount.Api.csproj", "{444F555A-0162-4F9C-B0A4-017AAC403785}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewFolder1", "NewFolder1", "{F20D22F9-88C8-48A4-87EA-E274ACECEE23}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PropertyAndMortgageAccount.Gateway", "PropertyAndMortgageAccount.Gateway", "{F20D22F9-88C8-48A4-87EA-E274ACECEE23}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
