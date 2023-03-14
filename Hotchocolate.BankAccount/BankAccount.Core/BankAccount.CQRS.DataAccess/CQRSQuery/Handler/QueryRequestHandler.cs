@@ -8,6 +8,7 @@ namespace BankAccount.CQRS.DataAccess.CQRSQuery.Handler;
 public class QueryRequestHandler<T> : IRequestHandler<QueryRequest<T>, QueryResponse<T>>
 {
     private IBaseRepositoryProvider<T> BaseRepositoryProvider { get; set; }
+
     public QueryRequestHandler(IBaseRepositoryProvider<T> baseRepositoryProvider)
     {
         BaseRepositoryProvider = baseRepositoryProvider;

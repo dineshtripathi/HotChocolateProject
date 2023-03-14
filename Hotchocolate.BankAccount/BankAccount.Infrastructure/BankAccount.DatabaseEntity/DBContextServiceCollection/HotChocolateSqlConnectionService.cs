@@ -5,13 +5,11 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace BankAccount.DatabaseEntity.DBContextServiceCollection;
 
-public static class HotChocolateServiceExtension
+public static class HotChocolateSqlConnectionService
 {
 
     public static IServiceCollection AddBankAccountSqlConnectionServices(this IServiceCollection services, IConfiguration configuration)
     {
-
-
 
         services.AddPooledDbContextFactory<BankAccountDbContext>(options =>
         {

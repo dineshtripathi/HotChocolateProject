@@ -1,7 +1,7 @@
 ﻿using Autofac;
-using BankAccount.DatabaseEntity.DBContext.BaseRepositoryProvider;
+using Module = Autofac.Module;
 
-namespace BankAccount.DatabaseEntity.RepositoryServiceCollection;
+namespace Property.DatabaseEntity.AutofacModule;
 
 
 public class RepositoryServiceDataAccessModule : Module

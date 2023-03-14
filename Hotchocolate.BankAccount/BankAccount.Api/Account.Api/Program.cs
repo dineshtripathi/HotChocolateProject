@@ -6,8 +6,7 @@ using BankAccount.CQRS.DataAccess;
 using BankAccount.DatabaseEntity.DBContextServiceCollection;
 using MediatR;
 using System.Reflection;
-using Property.DatabaseEntity;
-
+using Property.DatabaseEntity.DBContextServiceCollection;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddBankAccountSqlConnectionServices(builder.Configuration);

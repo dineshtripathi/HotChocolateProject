@@ -4,13 +4,13 @@ using PropertyAccount.Domain.Model;
 namespace PropertyAccount.Api.Schema.Query;
 
 [QueryType]
-public class PropertyQuery
+public class PropertySearchQuery
 {
     [UsePaging]
     [UseProjection]
     [UseFiltering]
     [UseSorting]
-    public IQueryable<Property> PropertySearch(Property property, IMediator propertySearchMediator)
+    public IQueryable<Property> PropertySearch(IMediator propertySearchMediator)
     {
 
         return null;

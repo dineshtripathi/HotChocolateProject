@@ -38,6 +38,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PropertyAccount.Api", "Prop
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PropertyAndMortgageAccount.Gateway", "PropertyAndMortgageAccount.Gateway", "{F20D22F9-88C8-48A4-87EA-E274ACECEE23}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PropertyAccount.CQRS.DataAccess", "BankAccount.Core\PropertyAccount.CQRS.DataAccess\PropertyAccount.CQRS.DataAccess.csproj", "{EACE7F15-BF1B-4FFD-A5BB-3101ED731515}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,6 +74,10 @@ Global
 		{444F555A-0162-4F9C-B0A4-017AAC403785}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{444F555A-0162-4F9C-B0A4-017AAC403785}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{444F555A-0162-4F9C-B0A4-017AAC403785}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EACE7F15-BF1B-4FFD-A5BB-3101ED731515}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EACE7F15-BF1B-4FFD-A5BB-3101ED731515}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EACE7F15-BF1B-4FFD-A5BB-3101ED731515}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EACE7F15-BF1B-4FFD-A5BB-3101ED731515}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -88,6 +94,7 @@ Global
 		{487D24F8-7138-47FA-B5F0-565DD45B54B0} = {D39E15D9-E838-4696-B747-3E3AD89CDBA0}
 		{47DED957-3762-4CCC-B5B8-9F61AD1D3224} = {E24D9DF9-4067-4003-B376-CB31451618EE}
 		{444F555A-0162-4F9C-B0A4-017AAC403785} = {47DED957-3762-4CCC-B5B8-9F61AD1D3224}
+		{EACE7F15-BF1B-4FFD-A5BB-3101ED731515} = {487D24F8-7138-47FA-B5F0-565DD45B54B0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C3E6BAA4-2984-4BE5-B650-25B168CEE8C9}
